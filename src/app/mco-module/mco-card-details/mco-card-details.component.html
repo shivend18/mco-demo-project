@@ -1,0 +1,39 @@
+<!--The card details has been created -->
+<div>
+  <div *ngFor="let item of selectedList">
+
+      <div class="cards" >
+        <div style="display: flex">
+          <div style="width: 50%">
+            <div class="card-title">
+              {{item.name}}
+            </div>
+            <div class="card-details">
+              <div><span>Email Address:</span> <span class="card-color">{{item.email}}</span></div>
+              <div><span>Postal Address:</span><span class="card-color">{{item.postalAdd}}</span></div>
+              <div><span>Phone Number:</span><span class="card-color">{{item.phNum}}</span></div>
+              <div><span>Favourite band:</span><span class="card-color">{{item.favBand}}</span></div>
+            </div>
+          </div>
+          <google-chart #chart
+                        [title]="title"
+                        [type]="type"
+                        [data]="data"
+                        [columns]="columnNames"
+                        [options]="options"
+                        [width]="width"
+                        [height]="height">
+          </google-chart>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+<!--message is shown when no user row is selected -->
+<div class="no-list-available" *ngIf="selectedList.length === 0">
+  User information not selected from the list
+</div>
